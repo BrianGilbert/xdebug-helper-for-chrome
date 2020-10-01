@@ -176,3 +176,22 @@ function isValueInArray(arr, val)
 
 	return false;
 }
+
+function addForwardedForHeader(e) {
+	let ip = localStorage["xdebugConnectBackIP"];
+	if (ip) {
+		e.requestHeaders.push({	
+			name: "X-Forwarded-For", 
+			value: ip
+		})
+	}
+	return e;
+}
+
+chrome.webRequest.onBeforeSendHeaders.addListener(
+	addForwardedForHeader,
+	{
+		urls: ["https://*/*"]
+	}, 
+	["blocking", "requestHeaders"]
+)

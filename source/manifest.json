@@ -3,10 +3,9 @@
 	"description": "Easy debugging, profiling and tracing extension for Xdebug",
 	"version": "1.0.6",
 	"author": "Brian Gilbert",
-
 	"manifest_version": 2,
 	"minimum_chrome_version": "20",
-	"permissions": [ "tabs", "*://*/*" ],
+	"permissions": [ "tabs", "*://*/*", "webRequest", "webRequestBlocking" ],
 	"icons": {
 		"16": "images/icon--16.png",
 		"48": "images/icon--48.png",

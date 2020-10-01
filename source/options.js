@@ -3,6 +3,7 @@ function save_options()
 	localStorage["xdebugIdeKey"] = document.getElementById("idekey").value;
 	localStorage["xdebugTraceTrigger"] = document.getElementById("tracetrigger").value;
 	localStorage["xdebugProfileTrigger"] = document.getElementById("profiletrigger").value;
+	localStorage["xdebugConnectBackIP"] = document.getElementById("connectbackip").value;
 }
 
 function restore_options()
@@ -41,6 +42,13 @@ function restore_options()
 		$("#profiletrigger").val(profileTrigger);
 	} else {
 		$("#profiletrigger").val(null);
+	}
+
+	var connectBackIP = localStorage["xdebugConnectBackIP"];
+	if (connectBackIP !== null) {
+		$("#connectbackip").val(connectBackIP)
+	} else {
+		$("#connectbackip").val(null)
 	}
 }
 
